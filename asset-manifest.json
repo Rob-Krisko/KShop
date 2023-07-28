@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/KShop/static/css/main.e6c13ad2.css",
+    "main.js": "/KShop/static/js/main.a09c7aa9.js",
+    "static/js/787.e2164b0d.chunk.js": "/KShop/static/js/787.e2164b0d.chunk.js",
+    "index.html": "/KShop/index.html",
+    "main.e6c13ad2.css.map": "/KShop/static/css/main.e6c13ad2.css.map",
+    "main.a09c7aa9.js.map": "/KShop/static/js/main.a09c7aa9.js.map",
+    "787.e2164b0d.chunk.js.map": "/KShop/static/js/787.e2164b0d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.a09c7aa9.js"
+  ]
+}
