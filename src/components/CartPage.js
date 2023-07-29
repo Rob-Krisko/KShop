@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import styled from 'styled-components';
 import { FiPlusCircle, FiMinusCircle, FiXCircle } from 'react-icons/fi';
@@ -117,6 +118,7 @@ function CartPage() {
           <strong>Total:</strong> ${getCartTotal()}
         </div>
       </TableContainer>
+      <Link to="/checkout">Proceed to Checkout</Link>
     </div>
   );
 }

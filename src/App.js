@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import CategoryPage from './components/CategoryPage';
 import { MainContent, Sidebar as StyledSidebar, Container } from './styles/MainContentStyles'; 
 import CartPage from './components/CartPage';
+import CheckoutPage from './components/CheckoutPage';
 import { CartProvider } from './context/CartContext';  
 import Header from './components/Header';  
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/category/:categoryName" element={<CategoryPage />} />
                 <Route path="/cart" element={<CartPage />} />
+                <Route path="/checkout" element={<CheckoutPage />} />
               </Routes>
             </MainContent>
           </div>
