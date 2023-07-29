@@ -41,7 +41,6 @@ function CategoryPage() {
 
   return (
     <div>
-      <h1>{displayCategoryName}</h1>
       {categoryProducts.map((product) => (
         <ProductCard key={product.id}>
           <ProductImage src={`${process.env.PUBLIC_URL}/${product.imageUrl}`} alt={product.name} />

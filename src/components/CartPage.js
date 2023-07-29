@@ -1,5 +1,3 @@
-// src/components/CartPage.js
-
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import styled from 'styled-components';
@@ -7,10 +5,6 @@ import styled from 'styled-components';
 const CartTable = styled.table`
   width: 100%;
   border-collapse: collapse;
-`;
-
-const ProductImage = styled.img`
-  margin-right: 10px;
 `;
 
 const CartRow = styled.tr`
@@ -22,6 +16,7 @@ const CartRow = styled.tr`
 
 const CartCell = styled.td`
   padding: 10px;
+  text-align: center;
 `;
 
 const TotalRow = styled.tr`
@@ -29,11 +24,11 @@ const TotalRow = styled.tr`
 `;
 
 function CartPage() {
-    const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
-  
-    const handleQuantityChange = (product, variant, event) => {
-      updateQuantity(product.id, variant.size, Number(event.target.value));
-    };
+  const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
+
+  const handleQuantityChange = (product, variant, event) => {
+    updateQuantity(product.id, variant.size, Number(event.target.value));
+  };
 
   const getTotalPrice = (price, quantity) => {
     if (price) {
@@ -72,10 +67,7 @@ function CartPage() {
         <tbody>
           {cart.map((item, index) => (
             <CartRow key={index}>
-              <CartCell>
-                <ProductImage src={`${process.env.PUBLIC_URL}/${item.product.imageUrl}`} alt={item.product.name} width="50" />
-                {item.product.name}
-              </CartCell>
+              <CartCell>{item.product.name}</CartCell>
               <CartCell>{item.variant.size}</CartCell>
               <CartCell>
                 <input type="number" min="1" value={item.quantity} onChange={(event) => handleQuantityChange(item.product, item.variant, event)} />

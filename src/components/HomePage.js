@@ -1,11 +1,14 @@
-// src/components/HomePage.js
+// HomePage.js
 
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 function HomePage() {
   return (
     <div>
-      <h1>Welcome to KShop</h1>
+      <Helmet>
+        <title>Welcome to KShop</title>
+      </Helmet>
       <p>Find your daily essentials here.</p>
     </div>
   );
