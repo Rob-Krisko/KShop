@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import styled from 'styled-components';
+import { FiPlusCircle, FiMinusCircle } from 'react-icons/fi';
 
 const CartTable = styled.table`
   width: 100%;
@@ -27,6 +28,15 @@ const TotalRow = styled.tr`
   font-weight: bold;
 `;
 
+const QuantityControl = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & button {
+    margin: 0 10px;
+  }
+`;
+
 const TableContainer = styled.div`
   overflow-x: auto;
 `;
@@ -34,8 +44,14 @@ const TableContainer = styled.div`
 function CartPage() {
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
 
-  const handleQuantityChange = (product, variant, event) => {
-    updateQuantity(product.id, variant.size, Number(event.target.value));
+  const increaseQuantity = (product, variant, quantity) => {
+    updateQuantity(product.id, variant.size, quantity + 1);
+  };
+
+  const decreaseQuantity = (product, variant, quantity) => {
+    if (quantity > 1) {
+      updateQuantity(product.id, variant.size, quantity - 1);
+    }
   };
 
   const getTotalPrice = (price, quantity) => {
@@ -53,7 +69,6 @@ function CartPage() {
     }, 0).toFixed(2);
   };
 
-  // If cart is empty, return a message
   if (cart.length === 0) {
     return <h2>Your cart is empty.</h2>;
   }
@@ -79,7 +94,11 @@ function CartPage() {
                 <CartCell>{item.product.name}</CartCell>
                 <CartCell>{item.variant.size}</CartCell>
                 <CartCell>
-                  <input type="number" min="1" value={item.quantity} onChange={(event) => handleQuantityChange(item.product, item.variant, event)} />
+                  <QuantityControl>
+                    <FiMinusCircle onClick={() => decreaseQuantity(item.product, item.variant, item.quantity)} />
+                    {item.quantity}
+                    <FiPlusCircle onClick={() => increaseQuantity(item.product, item.variant, item.quantity)} />
+                  </QuantityControl>
                 </CartCell>
                 <CartCell>${item.variant.price ? item.variant.price.toFixed(2) : "N/A"}</CartCell>
                 <CartCell>${getTotalPrice(item.variant.price, item.quantity)}</CartCell>
