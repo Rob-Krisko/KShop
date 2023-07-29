@@ -38,23 +38,24 @@ export function CartProvider({ children }) {
   };
 
   // Function to update the quantity of an item in the cart
-  const updateQuantity = (productId, size, quantity) => {
+  const updateQuantity = (productId, size, deltaQuantity) => {
     const existingCartItemIndex = cart.findIndex(
       item => item.product.id === productId && item.variant.size === size
     );
-
+  
     if (existingCartItemIndex !== -1) {
       const newCart = [...cart];
-      newCart[existingCartItemIndex].quantity = quantity;
-      setCart(newCart);
-    }
-
-    // If quantity is 0 or less, remove the item from the cart
-    if (quantity <= 0) {
-      removeFromCart(productId, size);
+      newCart[existingCartItemIndex].quantity += deltaQuantity;
+  
+      // If quantity is 0 or less, remove the item from the cart
+      if (newCart[existingCartItemIndex].quantity <= 0) {
+        removeFromCart(productId, size);
+      } else {
+        setCart(newCart);
+      }
     }
   };
-
+  
   // Function to remove an item from the cart
   const removeFromCart = (productId, size) => {
     const newCart = cart.filter(
