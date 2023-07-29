@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 import styled from 'styled-components';
-import { FiPlusCircle, FiMinusCircle } from 'react-icons/fi';
+import { FiPlusCircle, FiMinusCircle, FiXCircle } from 'react-icons/fi';
 
 const CartTable = styled.table`
   width: 100%;
@@ -32,8 +32,9 @@ const QuantityControl = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  & button {
+  & svg {
     margin: 0 10px;
+    cursor: pointer;
   }
 `;
 
@@ -80,10 +81,10 @@ function CartPage() {
         <CartTable>
           <thead>
             <tr>
-              <th>Product</th>
+              <th>Item</th>
               <th>Size</th>
               <th>Quantity</th>
-              <th>Price</th>
+              <th>Cost</th>
               <th>Total</th>
               <th>Remove</th>
             </tr>
@@ -95,15 +96,15 @@ function CartPage() {
                 <CartCell>{item.variant.size}</CartCell>
                 <CartCell>
                   <QuantityControl>
-                    <FiMinusCircle onClick={() => decreaseQuantity(item.product, item.variant, item.quantity)} />
+                    <FiMinusCircle size={24} onClick={() => decreaseQuantity(item.product, item.variant, item.quantity)} />
                     {item.quantity}
-                    <FiPlusCircle onClick={() => increaseQuantity(item.product, item.variant, item.quantity)} />
+                    <FiPlusCircle size={24} onClick={() => increaseQuantity(item.product, item.variant, item.quantity)} />
                   </QuantityControl>
                 </CartCell>
                 <CartCell>${item.variant.price ? item.variant.price.toFixed(2) : "N/A"}</CartCell>
                 <CartCell>${getTotalPrice(item.variant.price, item.quantity)}</CartCell>
                 <CartCell>
-                  <button onClick={() => removeFromCart(item.product.id, item.variant.size)}>Remove</button>
+                  <FiXCircle size={24} onClick={() => removeFromCart(item.product.id, item.variant.size)} />
                 </CartCell>
               </CartRow>
             ))}
