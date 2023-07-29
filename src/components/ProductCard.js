@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const StyledProductCard = styled.div`
   width: 200px;
-  height: 350px;
+  height: 250px;
   margin: 10px;
   padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -21,7 +21,6 @@ function ProductCard({ product }) {
     <StyledProductCard>
       <ProductImage src={`${process.env.PUBLIC_URL}/${product.imageUrl}`} alt={product.name} />
       <h3>{product.name}</h3>
-      <p>{product.description}</p>
       <p>Price: {product.variants[0].price} (for smallest size)</p> 
     </StyledProductCard>
   );

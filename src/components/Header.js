@@ -6,11 +6,15 @@ import { AiOutlineMenu } from 'react-icons/ai'; // Menu Icon
 import { AiOutlineShoppingCart } from 'react-icons/ai'; // Cart Icon
 
 const HeaderContainer = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   background-color: #f8f8f8;
   padding: 20px;
   border-bottom: 1px solid #e7e7e7;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `;
 

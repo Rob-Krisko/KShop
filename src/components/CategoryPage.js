@@ -1,14 +1,13 @@
-// src/components/CategoryPage.js
-
 import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { FiPlus, FiMinus } from 'react-icons/fi';
 import { products } from '../inventory';
 import styled from 'styled-components';
 import { CartContext } from '../context/CartContext';
 
 const ProductCard = styled.div`
   width: 200px;
-  height: 350px;
+  height: 450px;
   margin: 10px;
   padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
@@ -17,6 +16,55 @@ const ProductCard = styled.div`
 const ProductImage = styled.img`
   width: 100%;
   height: auto;
+`;
+
+const Select = styled.select`
+  width: 100%;
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+`;
+
+const Button = styled.button`
+  width: 100%;
+  padding: 0.8em;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+const QuantityContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1em;
+`;
+
+const QuantityButton = styled.button`
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1.2em;
+`;
+
+const IncrementButton = styled(QuantityButton)`
+  color: green;
+`;
+
+const DecrementButton = styled(QuantityButton)`
+  color: red;
+`;
+
+const Quantity = styled.span`
+  font-size: 1.2em;
 `;
 
 function CategoryPage() {
@@ -35,8 +83,10 @@ function CategoryPage() {
     setSelectedVariants(prev => ({ ...prev, [productId]: event.target.value }));
   };
 
-  const handleQuantityChange = (productId, event) => {
-    setSelectedQuantities(prev => ({ ...prev, [productId]: parseInt(event.target.value) }));
+  const handleQuantityChange = (productId, newQuantity) => {
+    if (newQuantity >= 1) {
+      setSelectedQuantities(prev => ({ ...prev, [productId]: newQuantity }));
+    }
   };
 
   return (
@@ -46,13 +96,21 @@ function CategoryPage() {
           <ProductImage src={`${process.env.PUBLIC_URL}/${product.imageUrl}`} alt={product.name} />
           <h2>{product.name}</h2>
           <p>{product.description}</p>
-          <select onChange={(event) => handleVariantChange(product.id, event)}>
+          <Select onChange={(event) => handleVariantChange(product.id, event)}>
             {product.variants.map((variant, variantIndex) => (
               <option key={variantIndex} value={variant.size}>{variant.size} - ${variant.price}</option>
             ))}
-          </select>
-          <input type="number" min="1" defaultValue={1} onChange={(event) => handleQuantityChange(product.id, event)} />
-          <button onClick={() => addToCart(product, selectedQuantities[product.id] || 1, selectedVariants[product.id] || product.variants[0].size)}>Add to cart</button>
+          </Select>
+          <QuantityContainer>
+            <DecrementButton onClick={() => handleQuantityChange(product.id, selectedQuantities[product.id] - 1)}>
+              <FiMinus size={20} />
+            </DecrementButton>
+            <Quantity>{selectedQuantities[product.id] || 1}</Quantity>
+            <IncrementButton onClick={() => handleQuantityChange(product.id, selectedQuantities[product.id] + 1 || 2)}>
+              <FiPlus size={20} />
+            </IncrementButton>
+          </QuantityContainer>
+          <Button onClick={() => addToCart(product, selectedQuantities[product.id] || 1, selectedVariants[product.id] || product.variants[0].size)}>Add to cart</Button>
         </ProductCard>
       ))}
     </div>

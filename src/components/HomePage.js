@@ -1,12 +1,10 @@
-// HomePage.js
-
 import React, { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import ProductCard from './ProductCard'; 
 import { products } from '../inventory'; 
 
-const FeaturedItemsGrid = styled.div`
+const ItemsGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -14,6 +12,7 @@ const FeaturedItemsGrid = styled.div`
 
 function HomePage() {
   const [featuredItems, setFeaturedItems] = useState([]);
+  const [promotedItems, setPromotedItems] = useState([]);
 
   // Function to get random items
   const getRandomItems = (items, n) => {
@@ -30,9 +29,17 @@ function HomePage() {
     return result;
   }
 
+  // Function to get promoted items
+  const getPromotedItems = (ids) => {
+    return products.filter(product => ids.includes(product.id));
+  }
+
   useEffect(() => {
-    // On component mount, get 3 random items from inventory
     setFeaturedItems(getRandomItems(products, 5));
+
+    // Set promoted items
+    // Replace these with the actual product ids of the products you want to promote
+    setPromotedItems(getPromotedItems(['p4', 'p6']));
   }, []);
 
   return (
@@ -40,12 +47,17 @@ function HomePage() {
       <Helmet>
         <title>Welcome to KShop</title>
       </Helmet>
-      <p>Find your daily essentials here.</p>
+      <div>
+        <h2>Promoted Items</h2>
+        <ItemsGrid>
+          {promotedItems.map(item => <ProductCard key={item.id} product={item} />)}
+        </ItemsGrid>
+      </div>
       <div>
         <h2>Featured Items</h2>
-        <FeaturedItemsGrid>
+        <ItemsGrid>
           {featuredItems.map(item => <ProductCard key={item.id} product={item} />)}
-        </FeaturedItemsGrid>
+        </ItemsGrid>
       </div>
     </div>
   );
