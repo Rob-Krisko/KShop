@@ -29,11 +29,11 @@ const TotalRow = styled.tr`
 `;
 
 function CartPage() {
-  const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
-
-  const handleQuantityChange = (product, variant, event) => {
-    updateQuantity(product.id, variant.size, Number(event.target.value));
-  };
+    const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
+  
+    const handleQuantityChange = (product, variant, event) => {
+      updateQuantity(product.id, variant.size, Number(event.target.value));
+    };
 
   const getTotalPrice = (price, quantity) => {
     if (price) {

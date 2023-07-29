@@ -1,5 +1,3 @@
-// src/context/CartContext.js
-
 import React, { createContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext();
@@ -8,7 +6,8 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState(() => {
     const localData = localStorage.getItem('cart');
     try {
-      return localData ? JSON.parse(localData) : [];
+      const parsedData = localData ? JSON.parse(localData) : [];
+      return Array.isArray(parsedData) ? parsedData : [];
     } catch (error) {
       console.error("Error parsing cart data from local storage:", error);
       return [];
