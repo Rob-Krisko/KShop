@@ -17,10 +17,18 @@ const CartRow = styled.tr`
 const CartCell = styled.td`
   padding: 10px;
   text-align: center;
+  @media (max-width: 768px) {
+    padding: 5px;
+    font-size: 0.8em;
+  }
 `;
 
 const TotalRow = styled.tr`
   font-weight: bold;
+`;
+
+const TableContainer = styled.div`
+  overflow-x: auto;
 `;
 
 function CartPage() {
@@ -53,38 +61,40 @@ function CartPage() {
   return (
     <div>
       <h1>Your Cart</h1>
-      <CartTable>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Size</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map((item, index) => (
-            <CartRow key={index}>
-              <CartCell>{item.product.name}</CartCell>
-              <CartCell>{item.variant.size}</CartCell>
-              <CartCell>
-                <input type="number" min="1" value={item.quantity} onChange={(event) => handleQuantityChange(item.product, item.variant, event)} />
-              </CartCell>
-              <CartCell>${item.variant.price ? item.variant.price.toFixed(2) : "N/A"}</CartCell>
-              <CartCell>${getTotalPrice(item.variant.price, item.quantity)}</CartCell>
-              <CartCell>
-                <button onClick={() => removeFromCart(item.product.id, item.variant.size)}>Remove</button>
-              </CartCell>
-            </CartRow>
-          ))}
-          <TotalRow>
-            <CartCell colSpan="4">Total</CartCell>
-            <CartCell>${getCartTotal()}</CartCell>
-          </TotalRow>
-        </tbody>
-      </CartTable>
+      <TableContainer>
+        <CartTable>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Size</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Total</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cart.map((item, index) => (
+              <CartRow key={index}>
+                <CartCell>{item.product.name}</CartCell>
+                <CartCell>{item.variant.size}</CartCell>
+                <CartCell>
+                  <input type="number" min="1" value={item.quantity} onChange={(event) => handleQuantityChange(item.product, item.variant, event)} />
+                </CartCell>
+                <CartCell>${item.variant.price ? item.variant.price.toFixed(2) : "N/A"}</CartCell>
+                <CartCell>${getTotalPrice(item.variant.price, item.quantity)}</CartCell>
+                <CartCell>
+                  <button onClick={() => removeFromCart(item.product.id, item.variant.size)}>Remove</button>
+                </CartCell>
+              </CartRow>
+            ))}
+            <TotalRow>
+              <CartCell colSpan="4">Total</CartCell>
+              <CartCell>${getCartTotal()}</CartCell>
+            </TotalRow>
+          </tbody>
+        </CartTable>
+      </TableContainer>
     </div>
   );
 }
