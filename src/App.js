@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Sidebar from './components/Sidebar';
 import HomePage from './components/HomePage';
 import CategoryPage from './components/CategoryPage';
-import { MainContent, Sidebar as StyledSidebar, Container } from './styles/MainContentStyles'; // import additional styles
+import { MainContent, Sidebar as StyledSidebar, Container } from './styles/MainContentStyles'; 
 import CartPage from './components/CartPage';
-import { CartProvider } from './context/CartContext';  // Import CartProvider
-import Header from './components/Header';  // Import Header
+import { CartProvider } from './context/CartContext';  
+import Header from './components/Header';  
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -16,13 +16,13 @@ function App() {
   };
 
   return (
-    <CartProvider>  {/* Wrap everything with CartProvider */}
+    <CartProvider>
       <Router>
         <Container>
-          <Header title="Welcome to KShop" toggleSidebar={toggleSidebar} />  {/* Global Header */}
+          <Header title="Welcome to KShop" toggleSidebar={toggleSidebar} />
           <div style={{ display: 'flex' }}>
             <StyledSidebar isOpen={isSidebarOpen}>
-              <Sidebar />
+              <Sidebar toggleSidebar={toggleSidebar} />
             </StyledSidebar>
             <MainContent>
               <Routes>
