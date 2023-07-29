@@ -14,7 +14,7 @@ export const Sidebar = styled.aside`
   position: fixed;
   width: 230px;
   height: calc(100vh - 60px);
-  overflow: auto;
+  overflow: hidden;
   transform: ${props => props.isOpen ? 'translateX(0)' : 'translateX(-100%)'};
   transition: transform 0.3s ease-in-out;
 
