@@ -4,15 +4,15 @@ import styled from 'styled-components';
 import { FiPlusCircle, FiMinusCircle, FiXCircle } from 'react-icons/fi';
 
 const CartCard = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   border: 1px solid #ccc;
   margin-bottom: 10px;
   padding: 10px;
 
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
   }
 `;
 
@@ -100,19 +100,17 @@ function CartPage() {
                 <strong>Price:</strong> ${item.variant.price ? item.variant.price.toFixed(2) : "N/A"}
               </div>
             </CartInfo>
-            <CartInfo>
-              <QuantityControl>
-                <FiMinusCircle onClick={() => decreaseQuantity(item.product.id, item.variant.size)} />
-                {item.quantity}
-                <FiPlusCircle onClick={() => increaseQuantity(item.product.id, item.variant.size)} />
-              </QuantityControl>
-              <div>
-                <strong>Total:</strong> ${getTotalPrice(item.variant.price, item.quantity)}
-              </div>
-              <div>
-                <RemoveIcon onClick={() => removeFromCart(item.product.id, item.variant.size)} />
-              </div>
-            </CartInfo>
+            <QuantityControl>
+              <FiMinusCircle onClick={() => decreaseQuantity(item.product.id, item.variant.size)} />
+              {item.quantity}
+              <FiPlusCircle onClick={() => increaseQuantity(item.product.id, item.variant.size)} />
+            </QuantityControl>
+            <div>
+              <strong>Total:</strong> ${getTotalPrice(item.variant.price, item.quantity)}
+            </div>
+            <div>
+              <RemoveIcon onClick={() => removeFromCart(item.product.id, item.variant.size)} />
+            </div>
           </CartCard>
         ))}
         <div>
