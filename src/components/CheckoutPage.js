@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
+import { useNavigate } from 'react-router-dom';
 import emailjs from 'emailjs-com';
 import styled from 'styled-components';
 
@@ -11,9 +12,24 @@ const CartItem = styled.div`
   justify-content: space-between;
 `;
 
+const OrderButton = styled.button`
+  transition: background-color 0.5s ease;
+  background-color: ${props => props.disabled ? '#888' : '#007BFF'};
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+`;
+
 function CheckoutPage() {
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   const [fromName, setFromName] = useState('');
+  const [isSending, setIsSending] = useState(false);
+  const navigate = useNavigate();
 
   const handleNameChange = (event) => {
     setFromName(event.target.value);
@@ -37,9 +53,25 @@ function CheckoutPage() {
   const placeOrder = (event) => {
     event.preventDefault();
 
+    if (fromName.trim() === '') {
+      alert('Please enter your name.');
+      return;
+    }
+
+    setIsSending(true);
+
     // Generate cart content
-    const message = cart.map(item => 
-      `Product: ${item.product.name} - Size: ${item.variant.size} - Quantity: ${item.quantity} - Total: $${getTotalPrice(item.variant.price, item.quantity)}`
+    const orderDetails = cart.map(item => {
+      return {
+        name: item.product.name,
+        size: item.variant.size,
+        quantity: item.quantity,
+        total: getTotalPrice(item.variant.price, item.quantity),
+      }
+    });
+
+    const message = orderDetails.map(item => 
+      `Product: ${item.name} - Size: ${item.size} - Quantity: ${item.quantity} - Total: $${item.total}`
     ).join('\n');
 
     const templateParams = {
@@ -49,9 +81,12 @@ function CheckoutPage() {
 
     emailjs.send('service_2tkgwa8', 'template_8qucp12', templateParams, 'RvBl8MmqRGKx1RdcR')
       .then(() => {
-        alert('Order has been sent!');
+        clearCart();
+        navigate('/confirmation', { state: { orderDetails, grandTotal: getCartTotal() } });
+        setIsSending(false);
       }, (error) => {
         console.log(error.text);
+        setIsSending(false);
       });
   };
 
@@ -75,7 +110,7 @@ function CheckoutPage() {
         ))}
         <p><strong>Grand Total:</strong> ${getCartTotal()}</p>
         
-        <button type="submit">Place Order</button>
+        <OrderButton type="submit" disabled={isSending}>{isSending ? 'Sending...' : 'Place Order'}</OrderButton>
       </form>
     </div>
   );

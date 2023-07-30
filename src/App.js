@@ -8,6 +8,8 @@ import CartPage from './components/CartPage';
 import CheckoutPage from './components/CheckoutPage';
 import { CartProvider } from './context/CartContext';  
 import Header from './components/Header';  
+import OrderConfirmation from './components/OrderConfirmation';
+
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -32,6 +34,7 @@ function App() {
                 <Route path="/category/:categoryName" element={<CategoryPage />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/confirmation" element={<OrderConfirmation />} />
               </Routes>
             </MainContent>
           </div>
