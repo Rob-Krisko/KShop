@@ -10,6 +10,7 @@ const ProductsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: start;
   gap: 10px;
+  padding: 10px;
 `;
 
 const ProductCard = styled.div`
