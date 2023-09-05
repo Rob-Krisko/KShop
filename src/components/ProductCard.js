@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledProductCard = styled.div`
-  width: 200px;
+  width: 250px;
   height: 250px;
   margin: 10px;
   padding: 10px;

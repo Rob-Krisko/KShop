@@ -14,7 +14,7 @@ const ProductsContainer = styled.div`
 `;
 
 const ProductCard = styled.div`
-  width: 200px;
+  width: 250px;
   height: 450px;
   margin: 10px;
   padding: 10px;

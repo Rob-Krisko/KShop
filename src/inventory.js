@@ -26,7 +26,7 @@ export const products = [
   {
     id: 'p2',
     name: 'Downy Scent Beads',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/laundry1.png',
     category: 'Laundry Items',
     variants: [
       { size: '5.7 oz', price: 4 },
@@ -36,56 +36,52 @@ export const products = [
   },
   {
     id: 'p3',
-    name: 'Window Cleaner',
-    description: 'Shines and cleans windows',
-    imageUrl: 'images/household1.png',
-    category: 'Household Items',
+    name: 'Purex Scent Beads',
+    imageUrl: 'images/laundry1.png',
+    category: 'Laundry Items',
     variants: [
-      { size: '16 oz', price: 4.99 },
+      { size: 'need size', price: 3.50 },
     ]
   },
   {
     id: 'p4',
-    name: 'Toothpaste',
-    description: 'Whitens and freshens breath',
-    imageUrl: 'images/oral1.png',
-    category: 'Oral Care Items',
+    name: 'Gain Pods',
+    imageUrl: 'images/laundry1.png',
+    category: 'Laundry Items',
     variants: [
-      { size: '4 oz', price: 2.99 },
-      { size: '8 oz', price: 4.99 },
+      { size: '42 ct', price: 10 },
+      { size: '42 ct Refill', price: 9 },
+      { size: '60 ct', price: 12 },
+      { size: '60 ct Refill', price: 11 },
     ]
   },
   {
     id: 'p5',
-    name: 'Hand Soap',
-    description: 'Kills germs and leaves hands soft',
-    imageUrl: 'images/personal1.png',
-    category: 'Personal Care Items',
+    name: 'Gain Liquid Detergent',
+    imageUrl: 'images/laundry1.png',
+    category: 'Laundry Items',
     variants: [
-      { size: '8 oz', price: 3.49 },
-      { size: '16 oz', price: 4.99 },
+      { size: '32 Loads', price: 3.50 },
+      { size: '107 Loads', price: 9 },
+      { size: '128 Loads', price: 15 },
     ]
   },
   {
     id: 'p6',
-    name: 'Pain Reliever',
-    description: 'Relieves minor aches and pains',
-    imageUrl: 'images/medicine1.png',
-    category: 'Medicine',
+    name: 'Gain Fabric Softener',
+    imageUrl: 'images/laundry1.png',
+    category: 'Laundry Items',
     variants: [
-      { size: '20 count', price: 6.99 },
-      { size: '50 count', price: 9.99 },
+      { size: '48 Loads', price: 3.50 },
     ]
   },
   {
     id: 'p7',
-    name: 'Tampons',
-    description: 'Comfortable and reliable',
-    imageUrl: 'images/feminine1.png',
-    category: 'Feminine Care Items',
+    name: 'Gain Dryer Sheets',
+    imageUrl: 'images/laundry1.png',
+    category: 'Laundry Items',
     variants: [
-      { size: '18 count', price: 7.99 },
-      { size: '36 count', price: 11.99 },
+      { size: '105 ct', price: 4 },
     ]
   },
   {
