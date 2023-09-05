@@ -25,7 +25,7 @@ const Title = styled.h1`
 
 const IconWrapper = styled.div`
   display: none;
-  margin-right: 10px; // Added margin to shift the icons slightly to the left
+  margin-right: 30px; // Added margin to shift the icons slightly to the left
 
   @media (max-width: 768px) {
     display: flex;

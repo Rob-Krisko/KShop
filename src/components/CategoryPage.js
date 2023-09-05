@@ -15,7 +15,7 @@ const ProductsContainer = styled.div`
 
 const ProductCard = styled.div`
   width: 250px;
-  height: 450px;
+  height: 475px;
   margin: 10px;
   padding: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
