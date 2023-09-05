@@ -5,6 +5,13 @@ import { products } from '../inventory';
 import styled from 'styled-components';
 import { CartContext } from '../context/CartContext';
 
+const ProductsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  gap: 10px;
+`;
+
 const ProductCard = styled.div`
   width: 200px;
   height: 450px;
@@ -90,12 +97,11 @@ function CategoryPage() {
   };
 
   return (
-    <div>
+    <ProductsContainer>
       {categoryProducts.map((product) => (
         <ProductCard key={product.id}>
           <ProductImage src={`${process.env.PUBLIC_URL}/${product.imageUrl}`} alt={product.name} />
           <h2>{product.name}</h2>
-          <p>{product.description}</p>
           <Select onChange={(event) => handleVariantChange(product.id, event)}>
             {product.variants.map((variant, variantIndex) => (
               <option key={variantIndex} value={variant.size}>{variant.size} - ${variant.price}</option>
@@ -113,7 +119,7 @@ function CategoryPage() {
           <Button onClick={() => addToCart(product, selectedQuantities[product.id] || 1, selectedVariants[product.id] || product.variants[0].size)}>Add to cart</Button>
         </ProductCard>
       ))}
-    </div>
+    </ProductsContainer>
   );
 }
 

@@ -15,26 +15,23 @@ export const categories = [
 export const products = [
   {
     id: 'p1',
-    name: 'Laundry Detergent',
-    description: 'Cleans and freshens your clothes',
+    name: 'Gain Scent Beads',
     imageUrl: 'images/laundry1.png',
     category: 'Laundry Items',
     variants: [
-      { size: '12 oz', price: 4.99 },
-      { size: '24 oz', price: 6.99 },
-      { size: '36 oz', price: 8.99 },
+      { size: '5.7 oz', price: 7 },
+      { size: '14.8 oz', price: 8 },
     ]
   },
   {
     id: 'p2',
-    name: 'Toilet Paper',
-    description: 'Soft and strong toilet paper',
+    name: 'Downy Scent Beads',
     imageUrl: 'images/paper1.png',
-    category: 'Paper Items',
+    category: 'Laundry Items',
     variants: [
-      { size: '4 pack', price: 3.99 },
-      { size: '12 pack', price: 6.99 },
-      { size: '24 pack', price: 9.99 },
+      { size: '5.7 oz', price: 4 },
+      { size: '10 oz', price: 6 },
+      { size: '14.8 oz', price: 8 },
     ]
   },
   {
