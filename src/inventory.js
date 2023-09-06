@@ -16,7 +16,7 @@ export const products = [
   {
     id: 'p1',
     name: 'Gain Scent Beads',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/gain-bead.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '5.7 oz', price: 7 },
@@ -26,7 +26,7 @@ export const products = [
   {
     id: 'p2',
     name: 'Downy Scent Beads',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/downy-bead.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '5.7 oz', price: 4 },
@@ -37,7 +37,7 @@ export const products = [
   {
     id: 'p3',
     name: 'Purex Scent Beads',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/purex-bead.jpg',
     category: 'Laundry Items',
     variants: [
       { size: 'need size', price: 3.50 },
@@ -46,7 +46,7 @@ export const products = [
   {
     id: 'p4',
     name: 'Gain Pods',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/gain-pod.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '42 ct', price: 10 },
@@ -58,7 +58,7 @@ export const products = [
   {
     id: 'p5',
     name: 'Gain Liquid Detergent',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/gain-liquid.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '32 Loads', price: 3.50 },
@@ -69,7 +69,7 @@ export const products = [
   {
     id: 'p6',
     name: 'Gain Fabric Softener',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/gain-softener.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '48 Loads', price: 3.50 },
@@ -78,7 +78,7 @@ export const products = [
   {
     id: 'p7',
     name: 'Gain Dryer Sheets',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/gain-sheets.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '105 ct', price: 4 },
@@ -87,7 +87,7 @@ export const products = [
   {
     id: 'p8',
     name: 'Snuggle Dryer Sheets',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/snuggle-sheet.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '40 ct', price: 1 },
@@ -97,7 +97,7 @@ export const products = [
   {
     id: 'p9',
     name: 'Bounce Dryer Sheets',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/bounce-sheets.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '40 ct', price: 1 },
@@ -109,7 +109,7 @@ export const products = [
   {
     id: 'p10',
     name: 'Tide Simply Pods',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/tide-simply.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '12-14 ct', price: 3 }
@@ -118,7 +118,7 @@ export const products = [
   {
     id: 'p11',
     name: 'Tide Pods',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/tide-pods.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '12 ct', price: 3.5 },
@@ -129,7 +129,7 @@ export const products = [
   {
     id: 'p12',
     name: 'Tide Power Pods w/ Oxi',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/tide-power.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '25 ct', price: 7 }
@@ -138,7 +138,7 @@ export const products = [
   {
     id: 'p13',
     name: 'Tide Ultra Oxi 4-in-1 Pods',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/tide-ultra-oxi.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '32 ct', price: 9 },
@@ -148,7 +148,7 @@ export const products = [
   {
     id: 'p14',
     name: 'Tide Free&Gentle Pods',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/tide-free-gentle.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '16 ct', price: 4 }
@@ -157,7 +157,7 @@ export const products = [
   {
     id: 'p15',
     name: 'Tide Coral Blast Detergent',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/tide-coral.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '92 oz', price: 10 }
@@ -166,17 +166,17 @@ export const products = [
   {
     id: 'p16',
     name: 'Tide W/ Downy Detergent',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/tide-downy.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '92 oz', price: 10 },
-      { size: '92 oz (2 for 1)', price: 16 } // Noted as "2 for 16", adjusted for a single unit price.
+      { size: '92 oz (2 for 16)', price: 16 } // Noted as "2 for 16", adjusted for a single unit price.
     ]
   },
   {
     id: 'p17',
     name: 'All Free & Gentle Detergent',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/all-free-clear.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '36 oz', price: 2.5 }
@@ -185,7 +185,7 @@ export const products = [
   {
     id: 'p18',
     name: 'Downy Infusions Softener',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/downy-infusions.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '32 oz', price: 4 }
@@ -194,7 +194,7 @@ export const products = [
   {
     id: 'p19',
     name: 'Persil Detergent',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/persil-liquid.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '40 oz', price: 4 }
@@ -203,7 +203,7 @@ export const products = [
   {
     id: 'p20',
     name: 'Persil Pods',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/persil-pods.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '40 ct', price: 10 }
@@ -212,7 +212,7 @@ export const products = [
   {
     id: 'p21',
     name: 'Lysol Laundry Sanitizer',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/lysol-sani.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '41 oz', price: 4.5 }
@@ -221,7 +221,7 @@ export const products = [
   {
     id: 'p22',
     name: 'Arm & Hammer w/ Oxi Pods',
-    imageUrl: 'images/laundry1.png',
+    imageUrl: 'images/laundry/arm-hammer-oxi.jpg',
     category: 'Laundry Items',
     variants: [
       { size: '24 ct', price: 4 }
@@ -229,8 +229,8 @@ export const products = [
   },
   {
     id: 'p23',
-    name: '9 Elements organic Detergent and Softener',
-    imageUrl: 'images/laundry1.png',
+    name: '9 Elements Detergent and Softener',
+    imageUrl: 'images/laundry/9elements-detergent.jpg',
     category: 'Laundry Items',
     variants: [
       { size: 'need', price: 8 }
@@ -239,7 +239,7 @@ export const products = [
   {
     id: 'p24',
     name: 'Kleenex /Puffs Tissues',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/kleenex.jpg',
     category: 'Paper Items',
     variants: [
       { size: 'one box', price: 1.5 }  // As it's "2 for 3", adjusted for a single unit price.
@@ -248,7 +248,7 @@ export const products = [
   {
     id: 'p25',
     name: 'Scott Toilet Paper',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/scott-tp.jpg',
     category: 'Paper Items',
     variants: [
       { size: '12 rolls', price: 3.5 }
@@ -257,7 +257,7 @@ export const products = [
   {
     id: 'p26',
     name: 'AngelSoft Toilet Paper',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/angelsoft-tp.jpg',
     category: 'Paper Items',
     variants: [
       { size: '6=24 rolls', price: 4.5 }
@@ -266,7 +266,7 @@ export const products = [
   {
     id: 'p27',
     name: 'Cottonelle Toilet Paper',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/cottonelle-tp.jpg',
     category: 'Paper Items',
     variants: [
       { size: '6=24 rolls', price: 5 }
@@ -275,7 +275,7 @@ export const products = [
   {
     id: 'p28',
     name: 'Charmin 1ply Toilet Paper',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/charmin-tp.jpg',
     category: 'Paper Items',
     variants: [
       { size: '6=24 rolls', price: 5 }
@@ -284,7 +284,7 @@ export const products = [
   {
     id: 'p29',
     name: 'Charmin Flushable Wipes',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/charmin-wipes.jpg',
     category: 'Paper Items',
     variants: [
       { size: '40 ct', price: 2.5 }
@@ -293,7 +293,7 @@ export const products = [
   {
     id: 'p30',
     name: 'Scott Paper Towels',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/scott-pt.jpg',
     category: 'Paper Items',
     variants: [
       { size: '6=7 rolls', price: 4 }
@@ -302,7 +302,7 @@ export const products = [
   {
     id: 'p31',
     name: 'Viva Paper Towels',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/viva-pt.jpg',
     category: 'Paper Items',
     variants: [
       { size: '6 rolls', price: 5 }
@@ -311,7 +311,7 @@ export const products = [
   {
     id: 'p32',
     name: 'Brawny Paper Towels',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/brawny-pt.jpg',
     category: 'Paper Items',
     variants: [
       { size: '2=4 rolls', price: 3 }
@@ -320,7 +320,7 @@ export const products = [
   {
     id: 'p33',
     name: 'Bounty Paper Towels',
-    imageUrl: 'images/paper1.png',
+    imageUrl: 'images/paper/bounty-pt.jpg',
     category: 'Paper Items',
     variants: [
       { size: '2=4 rolls', price: 3 }
@@ -328,7 +328,7 @@ export const products = [
   },
   {
     id: 'p34',
-    name: 'Bic MUltipurpose Lighter',
+    name: 'Bic Multipurpose Lighter',
     imageUrl: 'images/household1.png',
     category: 'Household Items',
     variants: [
