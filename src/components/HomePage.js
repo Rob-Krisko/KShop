@@ -35,7 +35,7 @@ function HomePage() {
   }
 
   useEffect(() => {
-    setFeaturedItems(getRandomItems(products, 5));
+    setFeaturedItems(getRandomItems(products, 4));
 
     // Set promoted items
     // Replace these with the actual product ids of the products you want to promote
